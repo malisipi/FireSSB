@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireSSB | Launcher Guide</title>
+    <link rel="stylesheet" href="./css/guide.css">
+</head>
+<body>
+    <h1>Content Table</h1>
+    <ul>
+        <li><a href="#bookmark-launcher">Create a SSB Launcher using browser bookmark</a></li>
+        <li><a href="#windows-shortcut-launcher">Create a SSB Launcher using Windows shortcut</a></li>
+        <li><a href="#windows-shortcut-launcher-icon">Change icon of Windows shortcut</a></li>
+        <li><a href="#linux-shortcut-launcher">Create a SSB Launcher using Linux shortcut</a></li>
+    </ul>
+    <h1 id="bookmark-launcher">Create a SSB Launcher using browser bookmark</h1>
+    <p>Create a blank bookmark using "Bookmarks Toolbar", "Bookmarks Side Panel" or using "Manage Bookmarks"</p>
+    <img src="assets/guide/bookmark1.png"/>
+    <p>Give the name of your app and paste the SSB url.</p>
+    <img src="assets/guide/bookmark2.png"/>
+    <p>Click to save! And you're ready to go!</p>
+    <h1 id="windows-shortcut-launcher">Create a SSB Launcher using Windows shortcut</h1>
+    <p>Create a blank shortcut</p>
+    <img src="assets/guide/shortcut_win1.png"/>
+    <p>Click to browse</p>
+    <img src="assets/guide/shortcut_win2.png"/>
+    <p>And choose your browser from "Browse" window</p>
+    <img src="assets/guide/shortcut_win3.png"/>
+    <p>Click to "OK" and click to end of inputbar that labelled by "Write item location" and write a space (one time) and quote (two times). And paste the SSB url between quotes. Later click "OK"</p>
+    <img src="assets/guide/shortcut_win4.png"/>
+    <p>Give a name for your app. And click to "End" button.</p>
+    <img src="assets/guide/shortcut_win5.png"/>
+    <p>Ready your shortcut!</p>
+    <img src="assets/guide/shortcut_win6.png"/>
+    <p>You can run your application with opening launcher</p>
+    <img src="assets/guide/win.png"/>
+    <h2 id="windows-shortcut-launcher-icon">Change icon of Windows shortcut</h2>
+    <p>Note: This guide will assume you have a icon file of the website.</p>
+    <p>Right click to the shortcut and click to "Properties".</p>
+    <img src="assets/guide/shortcut_win_icon1.png"/>
+    <p>Click to "Change Icon".</p>
+    <img src="assets/guide/shortcut_win_icon2.png"/>
+    <p>Click to "Browse" and choose icon</p>
+    <img src="assets/guide/shortcut_win_icon3.png"/>
+    <p>Click to "OK"</p>
+    <img src="assets/guide/shortcut_win_icon4.png"/>
+    <p>Click to "Apply"</p>
+    <img src="assets/guide/shortcut_win_icon5.png"/>
+    <p>And the icon is changed!</p>
+    <img src="assets/guide/shortcut_win_icon6.png"/>
+    <h1 id="linux-shortcut-launcher">Create a SSB Launcher using Linux shortcut</h1>
+    <p></p>
+    <pre>[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec={application} "{ssb-url}"
+Name={name}
+Icon={icon}</pre>
+    <p>Replace the <span class="code">{}</span> areas with their descriptions</p>
+    <p><span class="code">{application}</span>: With browser command like <span class="code">firefox</span> or <span class="code">librewolf</span></p>
+    <p><span class="code">{ssb-url}</span>: With url of SSB url of webpage</p>
+    <p><span class="code">{name}</span>: With app name</p>
+    <p><span class="code">{icon}</span>: With app icon (also you can use <span class="code">applications-internet</span>)</p>
+    <img src="assets/guide/linux.png"/>
+    <p></p>
+</body>
+</html>

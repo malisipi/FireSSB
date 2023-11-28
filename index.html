@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FireSSB</title>
+	<script src="js/index.js" defer></script>
+	<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+	<div>URL: <input type="url" id="url"/></div>
+	<div>Name: <input type="text" id="name"/></div>
+	<div>Incognito: <input type="checkbox" id="incognito"/></div>
+	<div>
+		<button id="fill">Fill Info from Active Tab</button>
+		<button id="create">Create SSB URL</button>
+	</div>
+
+	<div id="url_container" hidden>
+		<div id="copy_url">Click to Copy App URL</div>
+		<div><a href="./launcher.html" target="_blank">Learn How to Create a Desktop Launcher with this URL</a></div>
+	</div>
+</body>
+</html>
