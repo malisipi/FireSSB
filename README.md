@@ -1,6 +1,6 @@
 # FireSSB
 
-![FireSSB](./assets/win.png)
+![FireSSB](./assets/guide/win.png)
 
 > Bring back the SSB mode to FireFox and their forks!
 
