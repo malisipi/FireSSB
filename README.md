@@ -13,6 +13,8 @@
 * Same profile with your daily browser(1)
 * No native helper extecutable required
 
+> You can compare with another extensions [from here](./comparison_chart.md)
+
 > 1: You can install the extension within separate profile than your daily one.
 
 ## Bugs & Limitations
@@ -21,7 +23,12 @@
 
 * SSB windows can not be maximized with button. (Windows, Linux/X11)
 * SSB windows is keeping on top of browser window. (Linux/Any)
+    > Hint: Use another profile to prevent this issue.
 * SSB windows isn't groupped than browser window. (Any)
+
+## Create extension archive
+
+```zip -r FireSSB.xpi * -x .git -x .gitignore -x __assets\* -x \*.xpi -x \*.zip -x \*.crx```
 
 ## License
 

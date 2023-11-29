@@ -9,12 +9,22 @@
 <body>
     <h1>Content Table</h1>
     <ul>
+        <li><a href="#create-new-profile">Create new profile</a></li>
         <li><a href="#bookmark-launcher">Create a SSB Launcher using browser bookmark</a></li>
         <li><a href="#windows-shortcut-launcher">Create a SSB Launcher using Windows shortcut</a></li>
         <li><a href="#windows-shortcut-launcher-icon">Change icon of Windows shortcut</a></li>
         <li><a href="#linux-shortcut-launcher">Create a SSB Launcher using Linux shortcut</a></li>
     </ul>
+    <h1 id="create-new-profile">Create new profile</h1>
+    <p>Open <span class="code">about:profiles</span> and click "Create a New Profile"</p>
+    <img src="assets/guide/profile1.png"/>
+    <p>Click to "Next" and write a profile name (<span class="code">firessb</span> could be good example)</p>
+    <img src="assets/guide/profile2.png"/>
+    <p>Click to "Finish" and install the "FireSSB" extension to this new profile</p>
+    <img src="assets/guide/profile3.png"/>
+    <p class="warning">Important Note: Create SSB links with using same browser profile.</p>
     <h1 id="bookmark-launcher">Create a SSB Launcher using browser bookmark</h1>
+    <p class="warning">Important Note: Bookmark Launcher wont work with SSB links that created in another profile.</p>
     <p>Create a blank bookmark using "Bookmarks Toolbar", "Bookmarks Side Panel" or using "Manage Bookmarks"</p>
     <img src="assets/guide/bookmark1.png"/>
     <p>Give the name of your app and paste the SSB url.</p>
@@ -56,14 +66,15 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Exec={application} "{ssb-url}"
+Exec={application} {profile} "{ssb-url}"
 Name={name}
 Icon={icon}</pre>
     <p>Replace the <span class="code">{}</span> areas with their descriptions</p>
-    <p><span class="code">{application}</span>: With browser command like <span class="code">firefox</span> or <span class="code">librewolf</span></p>
-    <p><span class="code">{ssb-url}</span>: With url of SSB url of webpage</p>
-    <p><span class="code">{name}</span>: With app name</p>
-    <p><span class="code">{icon}</span>: With app icon (also you can use <span class="code">applications-internet</span>)</p>
+    <p><span class="code">{application}</span>: Replace with browser command like <span class="code">firefox</span> or <span class="code">librewolf</span></p>
+    <p><span class="code">{ssb-url}</span>: Replace with url of SSB url of webpage</p>
+    <p><span class="code">{name}</span>: Replace with app name</p>
+    <p><span class="code">{profile}</span>: Replace with <span class="code">-P "&lt;The profile name&gt;" or keep it blank to use default profile</span></p>
+    <p><span class="code">{icon}</span>: Replace with app icon (also you can use <span class="code">applications-internet</span>)</p>
     <img src="assets/guide/linux.png"/>
     <p></p>
 </body>
