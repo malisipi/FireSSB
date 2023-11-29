@@ -6,12 +6,12 @@
 
 ## Features 
 
-* All websites is supported to install as SSB
-* All extensions/plugins installed the profile and Firefox features will work
-* No internal browser components like location bar
-* Only a titlebar and your website (and you)
-* Same profile with your daily browser(1)
-* No native helper extecutable required
+* Default and external Firefox profiles is supported.
+* SSBs can have their start menu entry and their windows.
+* No native application depency (platform-independent)
+* SSBs will have only titlebar for better experience
+* All websites can be installed as SSB
+* Support for Firefox addon and features
 
 > You can compare with another extensions [from here](./comparison_chart.md)
 

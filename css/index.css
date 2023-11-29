@@ -21,3 +21,7 @@ div:not(#url_container) {
     cursor: pointer;
     text-decoration: underline;
 }
+
+#url_container, #ext-info {
+    margin-top: 30px;
+}

@@ -33,3 +33,13 @@ document.querySelector("#create").addEventListener("click", async () => {
 	url_container.hidden = false;
 	copy_url.setAttribute("app_url", the_url);
 });
+
+(async () => {
+	let can_access_incognito = await chrome.extension.isAllowedIncognitoAccess();
+	if(!can_access_incognito) {
+		input_incognito.style.cursor = "not-allowed";
+		input_incognito.checked = false;
+		input_incognito.disabled = true;
+		input_incognito.title = "Required Incognito Access"
+	}
+})();
