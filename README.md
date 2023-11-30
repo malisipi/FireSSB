@@ -4,6 +4,8 @@
 
 > Bring back the SSB mode to FireFox and their forks!
 
+<a href="https://addons.mozilla.org/addon/firessb/" target="_blank"><img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" height="50px"/></a>
+
 ## Features 
 
 * Default and external Firefox profiles is supported.
