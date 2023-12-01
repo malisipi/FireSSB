@@ -1,5 +1,5 @@
 {
-    "manifest__description": {
+    "manifestDescription": {
         "message": "Bring back the SSB mode to FireFox!"
     },
     "uiURL": {
