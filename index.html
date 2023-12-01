@@ -8,17 +8,30 @@
 	<link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-	<div>URL: <input type="url" id="url"/></div>
-	<div>Name: <input type="text" id="name"/></div>
-	<div>Incognito: <input type="checkbox" id="incognito"/></div>
-	<div>
-		<button id="fill">Fill Info from Active Tab</button>
-		<button id="create">Create SSB URL</button>
+	<div id="input">
+		<div>URL: <input type="url" id="url"/></div>
+		<div>Name: <input type="text" id="name"/></div>
+		<div>Incognito: <input type="checkbox" id="incognito"/></div>
 	</div>
 
-	<div id="url_container" hidden>
-		<div id="copy_url">Click to Copy App URL</div>
-		<div><a href="./launcher.html" target="_blank">Learn How to Create a Desktop Launcher with this URL</a></div>
+	<div id="controls">
+		<button id="autofill">
+			<img src="./assets/icons/tab_move_FILL0_wght400_GRAD0_opsz24.svg" />
+		</button>
+		<button id="copy-url">
+			<img src="./assets/icons/content_copy_FILL0_wght400_GRAD0_opsz24.svg" />
+		</button>
+		<button id="new-bookmark">
+			<img src="./assets/icons/bookmark_FILL0_wght400_GRAD0_opsz24.svg" />
+		</button>
+		<button id="open-ssb">
+			<img src="./assets/icons/open_in_new_FILL0_wght400_GRAD0_opsz24.svg" />
+		</button>
+		<a href="./guide.html" target="_blank">
+			<button>
+				<img src="./assets/icons/developer_guide_FILL0_wght400_GRAD0_opsz24.svg" />
+			</button>
+		</a>
 	</div>
 
 	<div id="ext-info">

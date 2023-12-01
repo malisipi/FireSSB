@@ -5,7 +5,7 @@
 	let app_title = (app_name.length == 0) ? "" : (app_name + " | ");
 	let app_incognito = decodeURIComponent(params.get("incognito")) == "true";
 
-	let [tab] = await chrome.tabs.query(queryOptions = { active: true, lastFocusedWindow: true });
-	await chrome.windows.create({url: app_url, type:"popup", titlePreface:app_title, incognito: app_incognito});
-	chrome.tabs.remove(tab.id);
+	let [tab] = await browser.tabs.query(queryOptions = { active: true, lastFocusedWindow: true });
+	await browser.windows.create({url: app_url, type:"popup", titlePreface:app_title, incognito: app_incognito});
+	browser.tabs.remove(tab.id);
 })();

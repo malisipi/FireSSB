@@ -36,4 +36,4 @@
 
 * This project is licensed by Apache 2.0 License.
 * This project icon is licensed by Apache 2.0 License.
-* [Google Material Symbols](https://developers.google.com/fonts/docs/material_symbols#licensing) is licensed by Apache 2.0 License. (Google Material Symbols is used in app icon)
+* [Google Material Symbols](https://developers.google.com/fonts/docs/material_symbols#licensing) is licensed by Apache 2.0 License. (Used in app icon and symbols that located in `./assets/icons/*` )
