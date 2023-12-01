@@ -1,0 +1,35 @@
+{
+    "manifest__description": {
+        "message": "Верните режим SSB в FireFox!"
+    },
+    "uiURL": {
+        "message": "URL"
+    },
+    "uiName": {
+        "message": "Имя"
+    },
+    "uiIncognito": {
+        "message": "Инкогнито"
+    },
+    "uiAutofillFromTab": {
+        "message": "Автозаполнение из вкладки"
+    },
+    "uiCopyURL": {
+        "message": "Копировать URL"
+    },
+    "uiNewBookmark": {
+        "message": "Создать новую закладку"
+    },
+    "uiOpenSSB": {
+        "message": "Открыть в режиме SSB"
+    },
+    "uiOpenGuide": {
+        "message": "Открыть руководство"
+    },
+    "uiExtOnGitHub": {
+        "message": "FireSSB на GitHub"
+    },
+    "uiRequiredIncognito": {
+        "message": "Для этого ресурса требуется разрешение на доступ в режиме инкогнито."
+    }
+}
