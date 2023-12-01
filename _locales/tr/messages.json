@@ -1,0 +1,35 @@
+{
+    "extensionDescription": {
+        "message": "SSB modunu Firefox'a geri getirin"
+    },
+    "uiURL": {
+        "message": "URL"
+    },
+    "uiName": {
+        "message": "İsim"
+    },
+    "uiIncognito": {
+        "message": "Gizli Mod"
+    },
+    "uiAutofillFromTab": {
+        "message": "Aktif Sekmeden Otomatik Doldur"
+    },
+    "uiCopyURL": {
+        "message": "URL'i Kopyala"
+    },
+    "uiNewBookmark": {
+        "message": "Yeni Yer İmi Oluştur"
+    },
+    "uiOpenSSB": {
+        "message": "SSB Modunda Aç"
+    },
+    "uiOpenGuide": {
+        "message": "Kılavuzu Aç"
+    },
+    "uiExtOnGitHub": {
+        "message": "GitHub'da FireSSB"
+    },
+    "uiRequiredIncognito": {
+        "message": "Bu Özellik, Gizli Moda Erişim Hakkı Gerektirir"
+    }
+}

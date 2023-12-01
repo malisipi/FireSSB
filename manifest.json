@@ -1,6 +1,6 @@
 {
 	"name": "FireSSB",
-	"description": "Bring back SSB feature into your browser",
+	"description": "__MSG_extensionDescription__",
 	"version": "0.2.1",
 	"manifest_version": 3,
 	"icons": {
@@ -24,6 +24,7 @@
 	"optional_permissions": [
 		"bookmarks"
 	],
+	"default_locale": "en",
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "firessb@malisipi.github.io"

@@ -14,6 +14,20 @@ var components = {
 	}
 };
 
+// Localization
+
+["uiURL", "uiName", "uiIncognito", "uiAutofillFromTab", "uiCopyURL", "uiNewBookmark", "uiOpenSSB", "uiOpenGuide", "uiExtOnGitHub"].forEach(name => {
+	document.querySelectorAll(`.local-${name}`).forEach((element) => {
+		let class_list = Array.from(element.classList);
+		if(class_list.includes("local-inner")){
+			element.innerText = browser.i18n.getMessage(name);
+		}
+		if(class_list.includes("local-title")){
+			element.title = browser.i18n.getMessage(name);
+		}
+	})
+})
+
 // Functions
 
 async function active_tab_info() {
@@ -78,6 +92,6 @@ components.controls.open_ssb.addEventListener("click", async function() {
 		components.input.incognito.style.cursor = "not-allowed";
 		components.input.incognito.checked = false;
 		components.input.incognito.disabled = true;
-		components.input.incognito.title = "Required Incognito Access";
+		components.input.incognito.title = browser.i18n.getMessage("uiRequiredIncognito");
 	};
 })();

@@ -1,0 +1,35 @@
+{
+    "manifest__description": {
+        "message": "Bring back the SSB mode to FireFox!"
+    },
+    "uiURL": {
+        "message": "URL"
+    },
+    "uiName": {
+        "message": "Name"
+    },
+    "uiIncognito": {
+        "message": "Incognito"
+    },
+    "uiAutofillFromTab": {
+        "message": "Autofill from the Tab"
+    },
+    "uiCopyURL": {
+        "message": "Copy URL"
+    },
+    "uiNewBookmark": {
+        "message": "Create new Bookmark"
+    },
+    "uiOpenSSB": {
+        "message": "Open in SSB Mode"
+    },
+    "uiOpenGuide": {
+        "message": "Open the Guide"
+    },
+    "uiExtOnGitHub": {
+        "message": "FireSSB on GitHub"
+    },
+    "uiRequiredIncognito": {
+        "message": "This property requires Incognito Access Permission"
+    }
+}
