@@ -1,16 +1,20 @@
 // Components
 
 var components = {
+	warning: {
+		_: document.querySelector("#warning"),
+		description: document.querySelector("#warning #description")
+	},
 	input: {
-		url: document.querySelector("#url"),
-		name: document.querySelector("#name"),
-		incognito: document.querySelector("#incognito")
+		url: document.querySelector("#input #url"),
+		name: document.querySelector("#input #name"),
+		incognito: document.querySelector("#input #incognito")
 	},
 	controls: {
-		autofill: document.querySelector("#autofill"),
-		copy_url: document.querySelector("#copy-url"),
-		new_bookmark: document.querySelector("#new-bookmark"),
-		open_ssb: document.querySelector("#open-ssb")
+		autofill: document.querySelector("#controls #autofill"),
+		copy_url: document.querySelector("#controls #copy-url"),
+		new_bookmark: document.querySelector("#controls #new-bookmark"),
+		open_ssb: document.querySelector("#controls #open-ssb")
 	}
 };
 
@@ -48,6 +52,20 @@ function create_ssb_url() {
 	return the_url;
 }
 
+function show_warning(uiKey) {
+	let warning_id = (window.last_warning_id ?? 0) + 1;
+	window.last_warning_id = warning_id;
+	components.warning.description.innerText = browser.i18n.getMessage(uiKey);
+	components.warning._.setAttribute("open", true);
+	setTimeout((the_id = warning_id) => {
+		if(window.last_warning_id == the_id){
+			if(components.warning._.hasAttribute("open")){
+				components.warning._.removeAttribute("open");
+			};
+		};
+	}, 3000);
+}
+
 // Event Listeners
 
 components.controls.autofill.addEventListener("click", async function() {
@@ -57,10 +75,14 @@ components.controls.autofill.addEventListener("click", async function() {
 });
 
 components.controls.copy_url.addEventListener("click", function() {
+	if(components.input.url.value == "") return show_warning("warningEmptyURL");
 	navigator.clipboard.writeText(create_ssb_url());
 });
 
 components.controls.new_bookmark.addEventListener("click", async function() {
+	if(components.input.url.value == "") return show_warning("warningEmptyURL");
+	if(components.input.name.value == "") return show_warning("warningEmptyName");
+
 	if(await browser.permissions.request({permissions: ["bookmarks"]})){
 		browser.bookmarks.create({
 			title: components.input.name.value,

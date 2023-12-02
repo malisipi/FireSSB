@@ -1,3 +1,7 @@
+html {
+    overflow: hidden;
+}
+
 body {
     width: 400px;
     height: auto;
@@ -5,6 +9,7 @@ body {
     --border-radius: 5px;
     --input-bg: #DDDDDD;
     --border-color: #AAAAAA;
+    --warn-color: #DDDD22;
     --font-color: #000000;
     --white-icon: 0;
 }
@@ -14,6 +19,7 @@ body {
         background: #111111;
         --input-bg: #222222;
         --border-color: #444444;
+        --warn-color: #999933;
         --font-color: #FFFFFF;
         --white-icon: 1;
     }
@@ -24,6 +30,33 @@ body {
     box-sizing: border-box;
     transition-duration: 50ms;
     color: var(--font-color);
+}
+
+#warning {
+    border-radius: var(--border-radius);
+}
+
+#warning:not([open]) {
+    max-height: 0px;
+    margin: 0;
+    overflow: auto;
+    background: none;
+}
+
+#warning[open] {
+    display: flex;
+    margin: 15px 5px;
+    align-items: center;
+    gap: 5px;
+    background: var(--warn-color);
+}
+
+#warning img.icon {
+    margin: 5px;
+}
+
+#warning #details {
+    word-wrap: anywhere;
 }
 
 #input {
@@ -68,6 +101,7 @@ input:hover, button:hover {
     background: var(--border-color);
 }
 
-button img {
+img.icon {
+    height: 24px;
     filter: invert(var(--white-icon));
 }

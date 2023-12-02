@@ -31,5 +31,11 @@
     },
     "uiRequiredIncognito": {
         "message": "Für diese Eigenschaft ist eine Inkognito-Zugriffsberechtigung erforderlich"
+    },
+    "warningEmptyURL": {
+        "message": "Die URL darf nicht leer sein"
+    },
+    "warningEmptyName": {
+        "message": "Der Name darf nicht leer sein"
     }
 }

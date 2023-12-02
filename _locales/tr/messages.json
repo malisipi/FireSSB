@@ -31,5 +31,11 @@
     },
     "uiRequiredIncognito": {
         "message": "Bu Özellik, Gizli Moda Erişim Hakkı Gerektirir"
+    },
+    "warningEmptyURL": {
+        "message": "URL boş bırakılamaz"
+    },
+    "warningEmptyName": {
+        "message": "İsim boş bırakılamaz"
     }
 }
