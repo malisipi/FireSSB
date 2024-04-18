@@ -1,3 +1,8 @@
+// Operating System Check for OS specific features
+if(navigator.userAgent.toLowerCase().includes("linux")){
+    document.body.setAttribute("linux", true);
+};
+
 // Components
 
 var components = {
@@ -14,13 +19,14 @@ var components = {
 		autofill: document.querySelector("#controls #autofill"),
 		copy_url: document.querySelector("#controls #copy-url"),
 		new_bookmark: document.querySelector("#controls #new-bookmark"),
-		open_ssb: document.querySelector("#controls #open-ssb")
+		open_ssb: document.querySelector("#controls #open-ssb"),
+		add_desktop_entry: document.querySelector("#controls #add-desktop-entry")
 	}
 };
 
 // Localization
 
-["uiURL", "uiName", "uiIncognito", "uiAutofillFromTab", "uiCopyURL", "uiNewBookmark", "uiOpenSSB", "uiOpenGuide", "uiExtOnGitHub"].forEach(name => {
+["uiURL", "uiName", "uiIncognito", "uiAutofillFromTab", "uiCopyURL", "uiNewBookmark", "uiOpenSSB", "uiOpenGuide", "uiExtOnGitHub", "uiCreateDesktopFile"].forEach(name => {
 	document.querySelectorAll(`.local-${name}`).forEach((element) => {
 		let class_list = Array.from(element.classList);
 		if(class_list.includes("local-inner")){
@@ -50,7 +56,7 @@ function create_ssb_url() {
 					"&incognito=" + encodeURIComponent(components.input.incognito.checked);
 	the_url = the_url.replaceAll("%","=-=");
 	return the_url;
-}
+};
 
 function show_warning(uiKey) {
 	let warning_id = (window.last_warning_id ?? 0) + 1;
@@ -64,7 +70,21 @@ function show_warning(uiKey) {
 			};
 		};
 	}, 3000);
-}
+};
+
+function sanitize_input(input) { // Sanitizer function the input that comes from the user
+    return input.replace(/[\`\"\'\,\.\:\;\$\[\]\\\(\)\{\}\#\<\>\&\|\!\/\-\_\=\n\r\t\?\@]*/g, "");
+};
+
+function download_file(url, name){ // Download helper to download desktop files
+    let link = document.createElement("a");
+    link.target = "_blank";
+    link.download = name;
+    link.href = url;
+    document.body.append(link);
+    link.click();
+    remove(link);
+};
 
 // Event Listeners
 
@@ -104,6 +124,24 @@ components.controls.open_ssb.addEventListener("click", async function() {
 			type: "popup"
 		});
 	}
+});
+
+components.controls.add_desktop_entry.addEventListener("click", async function() {
+	if(components.input.url.value == "") return show_warning("warningEmptyURL");
+	if(components.input.name.value == "") return show_warning("warningEmptyName");
+
+    let name = sanitize_input(components.input.name.value);
+    let ssb_url = create_ssb_url();
+    let application = sanitize_input(prompt("File executable", "firefox"));
+	let desktop_entry = `[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec="${application}" "${ssb_url}"
+Name=${name}
+Icon=applications-internet`;
+    download_file("data:application/octet-stream," + encodeURIComponent(desktop_entry), name + ".desktop");
 });
 
 // Check Permissions

@@ -32,6 +32,9 @@
     "uiRequiredIncognito": {
         "message": "Für diese Eigenschaft ist eine Inkognito-Zugriffsberechtigung erforderlich"
     },
+    "uiCreateDesktopFile": {
+        "message": "Erstellen Sie eine Verknüpfungsdatei (Desktop) für die Website"
+    },
     "warningEmptyURL": {
         "message": "Die URL darf nicht leer sein"
     },

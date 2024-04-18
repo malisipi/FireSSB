@@ -32,6 +32,9 @@
     "uiRequiredIncognito": {
         "message": "This property requires Incognito Access Permission"
     },
+    "uiCreateDesktopFile": {
+        "message": "Create Desktop File for the Website"
+    },
     "warningEmptyURL": {
         "message": "URL cannot be empty"
     },

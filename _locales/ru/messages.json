@@ -32,6 +32,9 @@
     "uiRequiredIncognito": {
         "message": "Для этого ресурса требуется разрешение на доступ в режиме инкогнито."
     },
+    "uiCreateDesktopFile": {
+        "message": "Создать файл ярлыка (на рабочем столе) для веб-сайта"
+    },
     "warningEmptyURL": {
         "message": "URL не может быть пустым"
     },

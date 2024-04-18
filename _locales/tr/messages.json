@@ -32,6 +32,9 @@
     "uiRequiredIncognito": {
         "message": "Bu Özellik, Gizli Moda Erişim Hakkı Gerektirir"
     },
+    "uiCreateDesktopFile": {
+        "message": "Web Sitesi için Kısayol (Desktop) Dosyası Oluşturun"
+    },
     "warningEmptyURL": {
         "message": "URL boş bırakılamaz"
     },
