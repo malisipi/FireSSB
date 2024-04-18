@@ -1,4 +1,4 @@
-# FireSSB ![Mozilla Add-on Rating](https://img.shields.io/amo/rating/firessb?style=plastic&logo=firefox)
+# FireSSB [![Mozilla Add-on Rating](https://img.shields.io/amo/rating/firessb?style=plastic&logo=firefox)](https://addons.mozilla.org/en-US/firefox/addon/firessb/reviews/)
 
 ![FireSSB](./assets/guide/win.png)
 
