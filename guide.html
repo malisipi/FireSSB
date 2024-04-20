@@ -80,23 +80,24 @@
 
 
     <h1 id="linux-shortcut-launcher">Create a SSB Launcher using Linux shortcut</h1>
-    <p></p>
+    <p>On most linux distributions, a <span class="code">.desktop</span> file can be used to create a launchable application. These are often stored in <span class="code">$HOME/.local/share/applications</span> or equivalent path on your system. So create a new <span class="code">{NAME}.desktop</span> file at the path and populate it with:</p>
     <pre>[Desktop Entry]
 Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Exec={application} {profile} "{ssb-url}"
+Exec={runtime} -new-window {profile} "{ssb-url}"
 Name={name}
 Icon={icon}</pre>
     <p>Replace the <span class="code">{}</span> areas with their descriptions</p>
-    <p><span class="code">{application}</span>: Replace with browser command like <span class="code">firefox</span> or <span class="code">librewolf</span></p>
-    <p><span class="code">{ssb-url}</span>: Replace with url of SSB url of webpage</p>
-    <p><span class="code">{name}</span>: Replace with app name</p>
-    <p><span class="code">{profile}</span>: Replace with <span class="code">-P "&lt;The profile name&gt;" or keep it blank to use default profile</span></p>
-    <p><span class="code">{icon}</span>: Replace with app icon (also you can use <span class="code">applications-internet</span>)</p>
+    <ul>
+    <li><span class="code">{runtime}</span>: Replace with browser command like <span class="code">firefox</span> or <span class="code">librewolf</span></li>
+    <li><span class="code">{ssb-url}</span>: Replace with url of SSB url of webpage</li>
+    <li><span class="code">{name}</span>: Replace with your app name</li>
+    <li><span class="code">{profile}</span>: Replace with <span class="code">-P "&lt;The profile name&gt;"</span> or keep it blank to use default profile</li>
+    <li><span class="code">{icon}</span>: Replace with your app icon (also you can use <span class="code">applications-internet</span>)</li>
     <img class="guide" src="assets/guide/linux.png"/>
-
+    </ul>
     <h1 id="still-questions">Do You Have Still Questions?</h1>
     <a href="https://github.com/malisipi/FireSSB/issues">Report the issues on GitHub</a>
 </body>
