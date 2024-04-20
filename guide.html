@@ -86,12 +86,12 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Exec={runtime} -new-window {profile} "{ssb-url}"
+Exec={browser} -new-window {profile} "{ssb-url}"
 Name={name}
 Icon={icon}</pre>
     <p>Replace the <span class="code">{}</span> areas with their descriptions</p>
     <ul>
-    <li><span class="code">{runtime}</span>: Replace with browser command like <span class="code">firefox</span> or <span class="code">librewolf</span></li>
+    <li><span class="code">{browser}</span>: Replace with browser command like <span class="code">firefox</span> or <span class="code">librewolf</span></li>
     <li><span class="code">{ssb-url}</span>: Replace with url of SSB url of webpage</li>
     <li><span class="code">{name}</span>: Replace with your app name</li>
     <li><span class="code">{profile}</span>: Replace with <span class="code">-P "&lt;The profile name&gt;"</span> or keep it blank to use default profile</li>
