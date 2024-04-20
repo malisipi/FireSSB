@@ -2,6 +2,15 @@
     "manifestDescription": {
         "message": "Bring back the SSB mode to FireFox!"
     },
+    "browserCommandName": {
+        "message": "Browser Command Name"
+    },
+    "profile": {
+        "message": "Browser Profile"
+    },
+    "useDefaultProfile": {
+        "message": "Use Default Browser Profile"
+    },
     "uiURL": {
         "message": "URL"
     },

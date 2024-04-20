@@ -5,7 +5,8 @@ html {
 body {
     width: 400px;
     height: auto;
-    background: #EEEEEE;
+    background: var(--background-color);
+    --background-color: #EEEEEE;
     --border-radius: 5px;
     --input-bg: #DDDDDD;
     --border-color: #AAAAAA;
@@ -16,7 +17,8 @@ body {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background: #111111;
+        background: var(--background-color);
+        --background-color: #111111;
         --input-bg: #222222;
         --border-color: #444444;
         --warn-color: #999933;
@@ -36,7 +38,7 @@ body {
     border-radius: var(--border-radius);
 }
 
-#warning:not([open]) {
+#warning:not([open]), #dialog:not([open]) {
     max-height: 0px;
     margin: 0;
     overflow: auto;
@@ -57,6 +59,42 @@ body {
 
 #warning #details {
     word-wrap: anywhere;
+}
+
+#dialog[open] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background-color);
+    border: var(--border-color) solid 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+#dialog .control-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#dialog .control-container button {
+    flex-grow: 1;
+    padding: 8px;
+}
+
+#dialog #dialog-input {
+    width: 100%;
+    padding: 8px 4px;
+}
+
+#dialog #dialog-title {
+    font-size: 24px;
 }
 
 #input {
@@ -83,7 +121,7 @@ body {
     justify-content: space-between;
 }
 
-button {
+#controls button {
     aspect-ratio: 1;
 }
 

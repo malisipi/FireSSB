@@ -6,6 +6,14 @@ if(navigator.userAgent.toLowerCase().includes("linux")){
 // Components
 
 var components = {
+    dialog: {
+        _: document.querySelector("#dialog"),
+        title: document.querySelector("#dialog #dialog-title"),
+        input: document.querySelector("#dialog #dialog-input"),
+        ok: document.querySelector("#dialog #dialog-ok"),
+        cancel: document.querySelector("#dialog #dialog-cancel"),
+        resolve: null
+    },
 	warning: {
 		_: document.querySelector("#warning"),
 		description: document.querySelector("#warning #description")
@@ -72,8 +80,12 @@ function show_warning(uiKey) {
 	}, 3000);
 };
 
-function sanitize_input(input) { // Sanitizer function the input that comes from the user
-    return input.replace(/[\`\"\'\,\.\:\;\$\[\]\\\(\)\{\}\#\<\>\&\|\!\/\-\_\=\n\r\t\?\@]*/g, "");
+function sanitize_input(input, only_letters=false) { // Sanitizer function the input that comes from the user
+    if(only_letters) {
+        return sanitize_input(input.replace(/\W/g,""));
+    } else {
+        return input.replace(/[\`\"\'\,\.\:\;\$\[\]\\\(\)\{\}\#\<\>\&\|\!\/\-\_\=\n\r\t\?\@]*/g, "");
+    };
 };
 
 function download_file(url, name){ // Download helper to download desktop files
@@ -83,10 +95,35 @@ function download_file(url, name){ // Download helper to download desktop files
     link.href = url;
     document.body.append(link);
     link.click();
-    remove(link);
+    link.remove();
+};
+
+function modern_prompt(title, pretext = "", placeholder = ""){
+    components.dialog._.setAttribute("open", true);
+    return new Promise((resolve) => {
+        components.dialog.title.innerText = title;
+        components.dialog.input.value = pretext;
+        components.dialog.input.placeholder = placeholder;
+        components.dialog.resolve = (content) => {
+            if(components.dialog._.hasAttribute("open")){
+                components.dialog._.removeAttribute("open");
+            };
+            resolve(content);
+        };
+    });
 };
 
 // Event Listeners
+
+components.dialog.ok.addEventListener("click", () => {
+    components.dialog.resolve(
+        components.dialog.input.value
+    );
+});
+
+components.dialog.cancel.addEventListener("click", () => {
+    components.dialog.resolve(false);
+});
 
 components.controls.autofill.addEventListener("click", async function() {
 	let tab_info = await active_tab_info();
@@ -132,13 +169,21 @@ components.controls.add_desktop_entry.addEventListener("click", async function()
 
     let name = sanitize_input(components.input.name.value);
     let ssb_url = create_ssb_url();
-    let application = sanitize_input(prompt("File executable", "firefox"));
+    let previous_application = localStorage.previous_firefox_application ?? "firefox";
+    let application = await modern_prompt(browser.i18n.getMessage("browserCommandName"), previous_application, "");
+    if(application === false) return;
+    application = sanitize_input(application);
+    localStorage.previous_firefox_application = application;
+    let profile = await modern_prompt(browser.i18n.getMessage("profile"), "", browser.i18n.getMessage("useDefaultProfile"));
+    if(profile === false) return;
+    profile = sanitize_input(profile, true);
+    if(profile != "") profile = "-P " + profile;
 	let desktop_entry = `[Desktop Entry]
 Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Exec="${application}" "${ssb_url}"
+Exec="${application}" ${profile} -new-window "${ssb_url}"
 Name=${name}
 Icon=applications-internet`;
     download_file("data:application/octet-stream," + encodeURIComponent(desktop_entry), name + ".desktop");

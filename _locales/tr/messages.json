@@ -2,6 +2,15 @@
     "manifestDescription": {
         "message": "SSB modunu Firefox'a geri getirin!"
     },
+    "browserCommandName": {
+        "message": "Tarayıcı Komutu Adı"
+    },
+    "profile": {
+        "message": "Tarayıcı Profili"
+    },
+    "useDefaultProfile": {
+        "message": "Varsayılan Tarayıcı Profilini Kullan"
+    },
     "uiURL": {
         "message": "URL"
     },
