@@ -1,7 +1,7 @@
 {
 	"name": "FireSSB",
 	"description": "__MSG_manifestDescription__",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"manifest_version": 3,
 	"icons": {
 		"16": "/assets/app/16.png",

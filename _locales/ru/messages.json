@@ -2,6 +2,15 @@
     "manifestDescription": {
         "message": "Верните режим SSB в FireFox!"
     },
+    "browserCommandName": {
+        "message": "Имя команды браузера"
+    },
+    "profile": {
+        "message": "Профиль браузера"
+    },
+    "useDefaultProfile": {
+        "message": "Использовать профиль браузера по умолчанию"
+    },
     "uiURL": {
         "message": "URL"
     },
@@ -31,6 +40,9 @@
     },
     "uiRequiredIncognito": {
         "message": "Для этого ресурса требуется разрешение на доступ в режиме инкогнито."
+    },
+    "uiCreateDesktopFile": {
+        "message": "Создать файл ярлыка (на рабочем столе) для веб-сайта"
     },
     "warningEmptyURL": {
         "message": "URL не может быть пустым"

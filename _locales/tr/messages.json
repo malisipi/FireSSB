@@ -2,6 +2,15 @@
     "manifestDescription": {
         "message": "SSB modunu Firefox'a geri getirin!"
     },
+    "browserCommandName": {
+        "message": "Tarayıcı Komutu Adı"
+    },
+    "profile": {
+        "message": "Tarayıcı Profili"
+    },
+    "useDefaultProfile": {
+        "message": "Varsayılan Tarayıcı Profilini Kullan"
+    },
     "uiURL": {
         "message": "URL"
     },
@@ -31,6 +40,9 @@
     },
     "uiRequiredIncognito": {
         "message": "Bu Özellik, Gizli Moda Erişim Hakkı Gerektirir"
+    },
+    "uiCreateDesktopFile": {
+        "message": "Web Sitesi için Kısayol (Desktop) Dosyası Oluşturun"
     },
     "warningEmptyURL": {
         "message": "URL boş bırakılamaz"

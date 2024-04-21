@@ -2,6 +2,15 @@
     "manifestDescription": {
         "message": "Bringen Sie den SSB-Modus zurück zu FireFox!"
     },
+    "browserCommandName": {
+        "message": "Browser-Befehlsname"
+    },
+    "profile": {
+        "message": "Browserprofil"
+    },
+    "useDefaultProfile": {
+        "message": "Standardbrowserprofil verwenden"
+    },
     "uiURL": {
         "message": "URL"
     },
@@ -31,6 +40,9 @@
     },
     "uiRequiredIncognito": {
         "message": "Für diese Eigenschaft ist eine Inkognito-Zugriffsberechtigung erforderlich"
+    },
+    "uiCreateDesktopFile": {
+        "message": "Erstellen Sie eine Verknüpfungsdatei (Desktop) für die Website"
     },
     "warningEmptyURL": {
         "message": "Die URL darf nicht leer sein"
