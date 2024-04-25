@@ -1,0 +1,53 @@
+{
+  "manifestDescription": {
+    "message": "¡Devuelve el modo SSB a Firefox!"
+  },
+  "browserCommandName": {
+    "message": "Nombre del comando del navegador"
+  },
+  "profile": {
+    "message": "Perfil del navegador"
+  },
+  "useDefaultProfile": {
+    "message": "Usar perfil de navegador predeterminado"
+  },
+  "uiURL": {
+    "message": "URL"
+  },
+  "uiName": {
+    "message": "Nombre"
+  },
+  "uiIncognito": {
+    "message": "Incógnito"
+  },
+  "uiAutofillFromTab": {
+    "message": "Autocompletar desde la pestaña"
+  },
+  "uiCopyURL": {
+    "message": "Copiar URL"
+  },
+  "uiNewBookmark": {
+    "message": "Crear nuevo marcador"
+  },
+  "uiOpenSSB": {
+    "message": "Abrir en modo SSB"
+  },
+  "uiOpenGuide": {
+    "message": "Abrir la guía"
+  },
+  "uiExtOnGitHub": {
+    "message": "FireSSB en GitHub"
+  },
+  "uiRequiredIncognito": {
+    "message": "Esta propiedad requiere permiso de acceso de incógnito"
+  },
+  "uiCreateDesktopFile": {
+    "message": "Crear un archivo de escritorio para el sitio web"
+  },
+  "warningEmptyURL": {
+    "message": "La URL no puede estar vacía."
+  },
+  "warningEmptyName": {
+    "message": "El nombre no puede estar vacío"
+  }
+}
