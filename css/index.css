@@ -147,3 +147,7 @@ img.icon {
 body:not([linux]) .linux-only {
     display: none;
 }
+
+body:not([windows]) .windows-only {
+    display: none;
+}
