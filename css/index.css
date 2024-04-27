@@ -32,6 +32,7 @@ body {
     box-sizing: border-box;
     transition-duration: 50ms;
     color: var(--font-color);
+    font-size: 18px;
 }
 
 #warning {
@@ -61,6 +62,10 @@ body {
     word-wrap: anywhere;
 }
 
+body[dialog_open] {
+    height: 235px;
+}
+
 #dialog[open] {
     position: fixed;
     top: 0;
@@ -75,6 +80,10 @@ body {
     z-index: 1;
     box-sizing: border-box;
     gap: 10px;
+}
+
+#dialog[open][dialog_type="confirm"] #dialog-input {
+    display: none;
 }
 
 #dialog .control-container {
@@ -95,6 +104,10 @@ body {
 
 #dialog #dialog-title {
     font-size: 24px;
+}
+
+#dialog #dialog-description {
+    overflow-y: auto;
 }
 
 #input {

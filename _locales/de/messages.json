@@ -11,6 +11,12 @@
     "useDefaultProfile": {
         "message": "Standardbrowserprofil verwenden"
     },
+    "uiOk": {
+        "message": "Ok"
+    },
+    "uiCancel": {
+        "message": "Abbrechen"
+    },
     "uiURL": {
         "message": "URL"
     },
@@ -49,5 +55,14 @@
     },
     "warningEmptyName": {
         "message": "Der Name darf nicht leer sein"
+    },
+    "warningExceedCommandSize": {
+        "message": "Maximale Befehlsgröße überschritten. Bitte geben Sie die URL oder den Namen der Website kurz an."
+    },
+    "uiDialogDesktopShortcutsTitle": {
+        "message": "Desktop-Verknüpfungen"
+    },
+    "uiDialogDesktopShortcutsDescription": {
+        "message": "Die Erweiterung erstellt Desktop-Verknüpfungen für den einfachen Zugriff auf Ihre SSB-Sites.\nDesktop-Verknüpfungen haben keine Ausführungsberechtigung, bis Sie die Berechtigung erteilen. Heruntergeladene Dateien werden vom Betriebssystem erst erkannt, wenn die Dateierweiterung „.download“ in ihren Namen gelöscht wird. Dies ist auch eine Sicherheitsmaßnahme, die von Firefox gefordert wird."
     }
 }

@@ -12,6 +12,7 @@ var components = {
         _: document.querySelector("#dialog"),
         title: document.querySelector("#dialog #dialog-title"),
         input: document.querySelector("#dialog #dialog-input"),
+        description: document.querySelector("#dialog #dialog-description"),
         ok: document.querySelector("#dialog #dialog-ok"),
         cancel: document.querySelector("#dialog #dialog-cancel"),
         resolve: null
@@ -61,9 +62,9 @@ async function active_tab_info() {
 };
 
 function create_ssb_url() {
-	let the_url = location.origin + 
+	let the_url = location.origin +
 					"/ssb.html?url=" + encodeURIComponent(components.input.url.value) +
-					"&name=" + encodeURIComponent(components.input.name.value) + 
+					"&name=" + encodeURIComponent(components.input.name.value) +
 					"&incognito=" + encodeURIComponent(components.input.incognito.checked);
 	the_url = the_url.replaceAll("%","=-=");
 	return the_url;
@@ -101,15 +102,31 @@ function download_file(url, name){ // Download helper to download desktop files
     link.remove();
 };
 
-function modern_prompt(title, pretext = "", placeholder = ""){
+function modern_dialog({title="", pretext="", placeholder="", type="prompt", description=""}){
     components.dialog._.setAttribute("open", true);
+    components.dialog._.setAttribute("dialog_type", type);
+    document.body.setAttribute("dialog_open", true);
     return new Promise((resolve) => {
         components.dialog.title.innerText = title;
-        components.dialog.input.value = pretext;
-        components.dialog.input.placeholder = placeholder;
+        components.dialog.description.innerText = description;
+        components.dialog.description.style.display = ["", "none"][Number(description == "")];
+        console.warn(title);
+        console.warn(type == "prompt");
+        if(type == "prompt"){
+          components.dialog.input.value = pretext;
+          components.dialog.input.placeholder = placeholder;
+        };
+        components.dialog.ok.innerText = browser.i18n.getMessage("uiOk");
+        components.dialog.cancel.innerText = browser.i18n.getMessage("uiCancel");
         components.dialog.resolve = (content) => {
             if(components.dialog._.hasAttribute("open")){
                 components.dialog._.removeAttribute("open");
+            };
+            if(components.dialog._.hasAttribute("dialog_type")){
+                components.dialog._.removeAttribute("dialog_type");
+            };
+            if(document.body.hasAttribute("dialog_open")){
+                document.body.removeAttribute("dialog_open");
             };
             resolve(content);
         };
@@ -119,13 +136,25 @@ function modern_prompt(title, pretext = "", placeholder = ""){
 // Event Listeners
 
 components.dialog.ok.addEventListener("click", () => {
-    components.dialog.resolve(
-        components.dialog.input.value
-    );
+    let type = components.dialog._.getAttribute("dialog_type");
+    if(type == "prompt") {
+        components.dialog.resolve(
+            components.dialog.input.value
+        );
+    } else if (type == "confirm") {
+        components.dialog.resolve(true);
+    }
+    components.dialog.resolve(null); // Fallback
 });
 
 components.dialog.cancel.addEventListener("click", () => {
-    components.dialog.resolve(false);
+  let type = components.dialog._.getAttribute("dialog_type");
+  if(type == "prompt") {
+      components.dialog.resolve(false);
+  } else if (type == "confirm") { // Yes, i know "prompt" and "confirm" has same code however wrong abstraction is worse than having duplication.
+      components.dialog.resolve(false);
+  }
+  components.dialog.resolve(null); // Fallback
 });
 
 components.controls.autofill.addEventListener("click", async function() {
@@ -167,17 +196,27 @@ components.controls.open_ssb.addEventListener("click", async function() {
 });
 
 components.controls.add_desktop_entry_windows.addEventListener("click", async function() {
+  let is_user_informed = localStorage.user_informed_desktop_shortcuts === "true" ?? "false";
+  if(!is_user_informed){
+      let is_user_confirmed = await modern_dialog({title: browser.i18n.getMessage("uiDialogDesktopShortcutsTitle"), "description": browser.i18n.getMessage("uiDialogDesktopShortcutsDescription"), type: "confirm"});
+      if(!is_user_confirmed) {
+          localStorage.user_informed_desktop_shortcuts = "false";
+          return;
+      } else {
+          localStorage.user_informed_desktop_shortcuts = "true";
+      };
+  };
 	if(components.input.url.value == "") return show_warning("warningEmptyURL");
 	if(components.input.name.value == "") return show_warning("warningEmptyName");
 
     let name = sanitize_input(components.input.name.value);
     let ssb_url = create_ssb_url();
     let previous_application = localStorage.previous_firefox_application ?? "firefox";
-    let application = await modern_prompt(browser.i18n.getMessage("browserCommandName"), previous_application, "");
+    let application = await modern_dialog({title:browser.i18n.getMessage("browserCommandName"), pretext:previous_application});
     if(application === false) return;
     application = sanitize_input(application);
     localStorage.previous_firefox_application = application;
-    let profile = await modern_prompt(browser.i18n.getMessage("profile"), "", browser.i18n.getMessage("useDefaultProfile"));
+    let profile = await modern_dialog({title:browser.i18n.getMessage("profile"), placeholder:browser.i18n.getMessage("useDefaultProfile")});
     if(profile === false) return;
     profile = sanitize_input(profile, true);
     if(profile != "") profile = "-P " + profile;
@@ -278,7 +317,7 @@ components.controls.add_desktop_entry_windows.addEventListener("click", async fu
     let allowed_app_command_len = 618;
 
     let app_command = `${application} ${profile} -new-window "${ssb_url}"`;
-    if(app_command.length>=allowed_app_command_len) return show_warning("exceedCommandSize");
+    if(app_command.length>=allowed_app_command_len) return show_warning("warningExceedCommandSize");
 
     let lnk_mid_of_file = (app_command.padEnd(allowed_app_command_len, "\x00").split("").join("\x00")+"\x00").split("").map(x=>x.charCodeAt(0));
 
@@ -292,17 +331,27 @@ components.controls.add_desktop_entry_windows.addEventListener("click", async fu
 });
 
 components.controls.add_desktop_entry_linux.addEventListener("click", async function() {
-	if(components.input.url.value == "") return show_warning("warningEmptyURL");
-	if(components.input.name.value == "") return show_warning("warningEmptyName");
+    let is_user_informed = localStorage.user_informed_desktop_shortcuts === "true" ?? "false";
+    if(!is_user_informed){
+        let is_user_confirmed = await modern_dialog({title: browser.i18n.getMessage("uiDialogDesktopShortcutsTitle"), "description": browser.i18n.getMessage("uiDialogDesktopShortcutsDescription"), type: "confirm"});
+        if(!is_user_confirmed) {
+            localStorage.user_informed_desktop_shortcuts = "false";
+            return;
+        } else {
+            localStorage.user_informed_desktop_shortcuts = "true";
+        };
+    };
+  	if(components.input.url.value == "") return show_warning("warningEmptyURL");
+  	if(components.input.name.value == "") return show_warning("warningEmptyName");
 
     let name = sanitize_input(components.input.name.value);
     let ssb_url = create_ssb_url();
     let previous_application = localStorage.previous_firefox_application ?? "firefox";
-    let application = await modern_prompt(browser.i18n.getMessage("browserCommandName"), previous_application, "");
+    let application = await modern_dialog({title:browser.i18n.getMessage("browserCommandName"), pretext:previous_application});
     if(application === false) return;
     application = sanitize_input(application);
     localStorage.previous_firefox_application = application;
-    let profile = await modern_prompt(browser.i18n.getMessage("profile"), "", browser.i18n.getMessage("useDefaultProfile"));
+    let profile = await modern_dialog({title:browser.i18n.getMessage("profile"), placeholder:browser.i18n.getMessage("useDefaultProfile")});
     if(profile === false) return;
     profile = sanitize_input(profile, true);
     if(profile != "") profile = "-P " + profile;

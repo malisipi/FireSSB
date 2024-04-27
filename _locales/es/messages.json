@@ -11,6 +11,12 @@
   "useDefaultProfile": {
     "message": "Usar perfil de navegador predeterminado"
   },
+  "uiOk": {
+      "message": "Aceptar"
+  },
+  "uiCancel": {
+      "message": "Cancelar"
+  },
   "uiURL": {
     "message": "URL"
   },
@@ -49,5 +55,14 @@
   },
   "warningEmptyName": {
     "message": "El nombre no puede estar vacío"
+  },
+  "warningExceedCommandSize": {
+    "message": "Se superó el tamaño máximo de comando. Acorte la URL o el nombre del sitio web."
+  },
+  "uiDialogDesktopShortcutsTitle": {
+      "message": "Accesos directos del escritorio"
+  },
+  "uiDialogDesktopShortcutsDescription": {
+      "message": "La extensión creará accesos directos en el escritorio para acceder fácilmente a sus sitios SSB.\nLos accesos directos en el escritorio no tendrán permiso de ejecución hasta que usted los otorgue. El sistema operativo no reconocerá los archivos descargados hasta que se elimine la extensión de archivo \".download\" en sus nombres. También es una medida de seguridad requerida por Firefox."
   }
 }

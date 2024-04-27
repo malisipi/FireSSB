@@ -11,6 +11,12 @@
     "useDefaultProfile": {
         "message": "Use Default Browser Profile"
     },
+    "uiOk": {
+        "message": "Ok"
+    },
+    "uiCancel": {
+        "message": "Cancel"
+    },
     "uiURL": {
         "message": "URL"
     },
@@ -49,5 +55,14 @@
     },
     "warningEmptyName": {
         "message": "Name cannot be empty"
+    },
+    "warningExceedCommandSize": {
+        "message": "Exceeded maximum command size. Please short the URL or Name of Website."
+    },
+    "uiDialogDesktopShortcutsTitle": {
+        "message": "Desktop Shortcuts"
+    },
+    "uiDialogDesktopShortcutsDescription": {
+        "message": "The extension will create desktop shortcuts to access your SSB sites easily.\nDesktop shortcuts would be not have execute permission until you give the permission. Downloaded files will not be recognized by the OS until the \".download\" file extension in their names is deleted. It's also a security measure that required by Firefox."
     }
 }

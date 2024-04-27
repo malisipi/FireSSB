@@ -11,6 +11,12 @@
     "useDefaultProfile": {
         "message": "Varsayılan Tarayıcı Profilini Kullan"
     },
+    "uiOk": {
+        "message": "Tamam"
+    },
+    "uiCancel": {
+        "message": "İptal"
+    },
     "uiURL": {
         "message": "URL"
     },
@@ -49,5 +55,14 @@
     },
     "warningEmptyName": {
         "message": "İsim boş bırakılamaz"
+    },
+    "warningExceedCommandSize": {
+        "message": "Maksimum komut sınırı aşıldı. Lütfen Web Sitesinin URL'ini veya İsmini kısaltın."
+    },
+    "uiDialogDesktopShortcutsTitle": {
+        "message": "Masaüstü Kısayolları"
+    },
+    "uiDialogDesktopShortcutsDescription": {
+        "message": "Uzantı, SSB sitelerinize kolayca erişmenizi sağlayacak masaüstü kısayolları oluşturacaktır.\nSiz izin verene kadar masaüstü kısayollarının yürütme izni olmayacaktır. İndirilen dosyalar, adlarındaki \".download\" dosya uzantısı silinene kadar işletim sistemi tarafından tanınmayacaktır. Bu aynı zamanda Firefox'un gerektirdiği bir güvenlik önlemidir."
     }
 }
