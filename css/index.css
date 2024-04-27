@@ -32,7 +32,7 @@ body {
     box-sizing: border-box;
     transition-duration: 50ms;
     color: var(--font-color);
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #warning {
