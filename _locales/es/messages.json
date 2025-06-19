@@ -26,6 +26,9 @@
   "uiIncognito": {
     "message": "Incógnito"
   },
+  "uiAlternativeMode": {
+    "message": "Modo alternativo"
+  },
   "uiAutofillFromTab": {
     "message": "Autocompletar desde la pestaña"
   },

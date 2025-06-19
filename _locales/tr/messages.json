@@ -26,6 +26,9 @@
     "uiIncognito": {
         "message": "Gizli Mod"
     },
+    "uiAlternativeMode": {
+        "message": "Alternatif Mod"
+    },
     "uiAutofillFromTab": {
         "message": "Aktif Sekmeden Otomatik Doldur"
     },

@@ -26,6 +26,9 @@
     "uiIncognito": {
         "message": "Инкогнито"
     },
+    "uiAlternativeMode": {
+        "message": "Альтернативный режим"
+    },
     "uiAutofillFromTab": {
         "message": "Автозаполнение из вкладки"
     },

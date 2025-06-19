@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FireSSB | Helper</title>
+    <link rel="stylesheet" href="./css/guide.css">
+    <style>
+        body:not([permission-requested]){
+            & .permission-requested {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <script src="js/ssb.js"></script>
+    <div class="permission-requested">
+        <h1>Enable popups for alternative mode.</h1>
+        <p>Since popups is part of an web api, alternative mode is requiring popup permission to create windows.</p>
+        <p>This permission is essential for alternative mode. If you don't want to give permission, you can still use classic mode.</p>
+        <a href="guide.html#alternative-mode" target="_blank"><p>Learn more about alternative mode</p></a>
+    </div>
 </body>
 </html>

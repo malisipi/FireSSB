@@ -126,7 +126,7 @@ body[dialog_open] {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 #ext-info {
@@ -140,9 +140,10 @@ body[dialog_open] {
 
 input {
     height: 25px;
+    margin: 0;
 }
 
-input, button {
+input:not([type="checkbox"]), button {
     border-radius: var(--border-radius);
     background: var(--input-bg);
     border: var(--border-color) 2px solid;

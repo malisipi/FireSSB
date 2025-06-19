@@ -19,6 +19,7 @@
             </ul>
         </li>
         <li><a href="#linux-shortcut-launcher">Create a SSB Launcher using Linux shortcut</a></li>
+        <li><a href="#alternative-mode">Alternative Mode</a></li>
         <li><a href="#still-questions">Do You Have Still Questions?</a></li>
     </ul>
 
@@ -99,6 +100,13 @@ Icon={icon}</pre>
     <li><span class="code">{icon}</span>: Replace with your app icon (also you can use <span class="code">applications-internet</span>)</li>
     <img class="guide" src="assets/guide/linux.png"/>
     </ul>
+    <h1 id="alternative-mode">Alternative Mode</h1>
+    <p>Alternative mode is using an web api to create popups instead of extension api. There're some advantages and disadvantages.
+    <p>Extension popup is not maximizable on most platform (X11, Windows). They stay above than browser window (Wayland) unlike than a window.</p>
+    <p>Web api (Alternative mode) popup can maximizable like other windows and can be stay behind than browser window. However there's a persistant url bar to show exact urls that cannot be disabled as a security requirenment. Also it's useful, if you want the url bar. Also since it's a web api, you cannot set a title or set incognito mode when alternative mode enabled. Desktop shortcuts will stay working as is when enable alternative mode.</p>
+    <br>
+    <p>Alternative mode screenshot is placed below</p>
+    <img class="guide" src="assets/guide/alternative_mode.png"/>
     <h1 id="still-questions">Do You Have Still Questions?</h1>
     <a href="https://github.com/malisipi/FireSSB/issues">Report the issues on GitHub</a>
 </body>

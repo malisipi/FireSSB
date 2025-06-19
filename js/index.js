@@ -24,7 +24,8 @@ var components = {
 	input: {
 		url: document.querySelector("#input #url"),
 		name: document.querySelector("#input #name"),
-		incognito: document.querySelector("#input #incognito")
+		incognito: document.querySelector("#input #incognito"),
+		alternative: document.querySelector("#input #alternative"),
 	},
 	controls: {
 		autofill: document.querySelector("#controls #autofill"),
@@ -38,7 +39,7 @@ var components = {
 
 // Localization
 
-["uiURL", "uiName", "uiIncognito", "uiAutofillFromTab", "uiCopyURL", "uiNewBookmark", "uiOpenSSB", "uiOpenGuide", "uiExtOnGitHub", "uiCreateDesktopFile"].forEach(name => {
+["uiURL", "uiName", "uiIncognito", "uiAlternativeMode", "uiAutofillFromTab", "uiCopyURL", "uiNewBookmark", "uiOpenSSB", "uiOpenGuide", "uiExtOnGitHub", "uiCreateDesktopFile"].forEach(name => {
 	document.querySelectorAll(`.local-${name}`).forEach((element) => {
 		let class_list = Array.from(element.classList);
 		if(class_list.includes("local-inner")){
@@ -65,7 +66,8 @@ function create_ssb_url() {
 	let the_url = location.origin +
 					"/ssb.html?url=" + encodeURIComponent(components.input.url.value) +
 					"&name=" + encodeURIComponent(components.input.name.value) +
-					"&incognito=" + encodeURIComponent(components.input.incognito.checked);
+                    "&incognito=" + encodeURIComponent(components.input.incognito.checked) +
+                    "&alternative=" + encodeURIComponent(components.input.alternative.checked);
 	the_url = the_url.replaceAll("%","=-=");
 	return the_url;
 };
@@ -88,7 +90,7 @@ function sanitize_input(input, only_letters=false) { // Sanitizer function the i
     if(only_letters) {
         return sanitize_input(input.replace(/\W/g,""));
     } else {
-        return input.replace(/[\`\"\'\,\.\:\;\$\[\]\\\(\)\{\}\#\<\>\&\|\!\/\-\_\=\n\r\t\?\@]*/g, "");
+        return input.replace(/[\`\"\'\,\.\:\;\$\[\]\\\(\)\{\}\#\<\>\&\|\!\/\=\n\r\t\?\@]*/g, "");
     };
 };
 
