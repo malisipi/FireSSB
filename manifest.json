@@ -27,7 +27,10 @@
 	"default_locale": "en",
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "firessb@malisipi.github.io"
+			"id": "firessb@malisipi.github.io",
+			"data_collection_permissions": {
+				"required": ["none"]
+			}
 		}
 	}
 }
