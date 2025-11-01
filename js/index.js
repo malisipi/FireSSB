@@ -364,7 +364,8 @@ Type=Application
 Terminal=false
 Exec="${application}" ${profile} -new-window "${ssb_url}"
 Name=${name}
-Icon=applications-internet`;
+Icon=applications-internet
+Categories=Network`;
     download_file("data:application/octet-stream," + encodeURIComponent(desktop_entry), name + ".desktop");
 });
 
